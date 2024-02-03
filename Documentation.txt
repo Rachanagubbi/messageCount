@@ -1,0 +1,143 @@
+This C++ code defines a simple 'DeviceMonitor' class that keeps track of the number of messages received for each devices
+
+1. Code Overview:
+
+The C++ code(messageCount.cpp) is a simple program that monitors the count of messages for different devices using a DeviceMonitor class. Here's the key components:
+
+-->Header Inclusions:
+The code includes necessary header files for input/output operations (iostream) and an unordered map container (unordered_map) from the C++ Standard Library.
+
+--> DeviceMonitor Class:
+• private member: std::unordered_map<std::string, int> messageCount, which is an unordered map storing device names as keys and the corresponding message counts as values.
+• public methods:
+void recordMessage(const std::string& deviceName): Increments the message count for a given device.
+int getMessageCount(const std::string& deviceName) const: Retrieves the message count for a given device.
+The getAllMessageCounts method returns a constant reference to the entire unordered map containing message counts for all devices.
+
+--> Main Function:
+• In the main function, an instance of DeviceMonitor called monitor is created.
+• Uses a loop to continuously prompt the user for device names until the user types "exit."
+• Calls recordMessage to increment the message count for each entered device.
+• Prints the message counts for each device using the getAllMessageCounts method after the user exits the loop.
+
+2. Instructions for Running:
+
+Case 1:
+Follow these steps to run the code using Visual Studio Code on Windows:
+
+Step 1: Install Prerequisites
+• Install Visual Studio Code: Download and install Visual Studio Code from here.
+• Install a C++ Compiler: use MinGW or Microsoft Visual C++ Build Tools.
+
+Step 2: Set Up the Project
+• Open Visual Studio Code and create a new folder for the C++ project.
+• Inside the project folder, create a new file, e.g., messageCount.cpp, and copy the provided C++ code into this file.
+
+Step 3: Configure Visual Studio Code
+• Install the "C/C++" extension by Microsoft from the Extensions view (Ctrl+Shift+X).
+• Create a .vscode folder inside your project folder.
+• Inside the .vscode folder, create a tasks.json file and add the following content to tasks.json:
+
+json
+
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "g++",
+            "args": ["-g", "${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
+This configuration assumes you're using g++ as your compiler. If you are using a different compiler, adjust the "command" and "args" accordingly.
+
+
+• Create a launch.json file inside the .vscode folder with the provided content.
+json
+
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build",
+            "miDebuggerPath": "gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
+Adjust the "program" field if your compiler generates a different executable name.
+
+
+Step 4: Build and Run
+• Press Ctrl+Shift+B to build the code using the configured build task.
+
+• Press F5 to run the code. This will compile and execute the program.
+
+• Enter device names when prompted and type "exit" to stop input.
+
+• View the output in the console at the bottom of Visual Studio Code, which will display the message counts for each device.
+
+3. Notes:
+• Ensure that your C++ compiler (e.g., g++ or cl.exe) is in the system PATH.
+
+If you encounter any issues during compilation or execution, double-check the compiler and debugger configurations in the .vscode folder.
+Following these steps should allow you to successfully build, run, and test the provided C++ code using Visual Studio Code on Windows.
+
+Case 2:
+To run the C++ code on Windows using an online compiler, you can follow these steps:
+
+Step 1. Choose an Online Compiler:
+There are several online C++ compilers available. Some popular ones include:
+
+• OnlineGDB
+• Compiler Explorer
+• Repl.it
+• Copy and Paste Code
+
+Step 2. Copy the C++ code provided:
+
+Step 3. Paste into Online Compiler:
+ • Open your chosen online compiler, and paste the code into the editor.
+
+Step 4. Compile and Run:
+ • Follow the instructions provided by the online compiler to compile and run the code. Usually, there is a "Run" button or similar that you can click to execute the code.
+
+Step 5. Enter Input:
+ • When prompted, enter device names. Type 'exit' when you want to stop entering device names.
+
+Step 6. View Output:
+ • The output should be displayed in the console or output area of the online compiler.
+
+
+
+
+
